@@ -20,11 +20,11 @@ export const FloatingChatButton = () => {
   return (
     <>
       {/* Floating Chat Button - Always visible */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-6 z-50 cursor-pointer" onClick={handleButtonClick}>
         <Button
-          onClick={handleButtonClick}
           className="w-16 h-16 rounded-full shadow-2xl glass-effect-light border-2 border-construction-gold/30 hover:border-construction-gold hover:shadow-construction-gold/25 transition-all duration-300 bg-construction-gold/20 hover:bg-construction-gold/30"
           type="button"
+          // onClick={handleButtonClick}
         >
           {isOpen ? (
             <X className="h-8 w-8 text-construction-gold" />
