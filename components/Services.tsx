@@ -1,5 +1,6 @@
 import { Clock, Shield, Palette, Users, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export const Services = () => {
   console.log('Services component is rendering');
@@ -74,11 +75,13 @@ export const Services = () => {
                 <div className="bg-slate-800/50 backdrop-blur-sm border border-amber-500/20 hover:border-amber-500/40 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:scale-[1.02]">
                   {/* Service Image */}
                   <div className="relative overflow-hidden h-48">
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      width={1000}
+                      height={1000}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
                     
@@ -171,10 +174,10 @@ export const Services = () => {
               <div className="bg-slate-700/50 backdrop-blur-sm p-4 rounded-xl border border-amber-500/20">
                 <div className="text-amber-500 font-bold text-lg mb-2">🛡️ Zero Stress</div>
                 <p className="text-gray-300 text-sm">Full project management, insurance coverage, and quality guarantees included</p>
-              </div>
+              </div>  
             </div>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Join 150+ satisfied clients who chose the smart way to build. Get your free consultation and discover why we're Metro City's #1 choice for luxury residential construction.
+              Join 150+ satisfied clients who chose the smart way to build. Get your free consultation and discover why we&apos;re Metro City&apos;s #1 choice for luxury residential construction.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold shadow-amber-500/20 text-lg px-8 py-3">

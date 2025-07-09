@@ -1,5 +1,6 @@
 
-import { Clock, Shield, Award, Users, CheckCircle, Target } from "lucide-react";
+import { Clock, Shield, Award, Users, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export const About = () => {
   const features = [
@@ -78,9 +79,11 @@ export const About = () => {
           {/* Left Column - Image */}
           <div className="relative">
             <div className="glass-effect-strong rounded-2xl overflow-hidden border border-construction-gold/20">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
                 alt="Construction site with workers"
+                width={1000}
+                height={1000}
                 className="w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-construction-dark/40 to-transparent"></div>

@@ -1,5 +1,6 @@
 import { ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export const Projects = () => {
   console.log('Projects component is rendering');
@@ -108,11 +109,13 @@ export const Projects = () => {
                 <div className="bg-white/70 backdrop-blur-sm border border-amber-500/20 hover:border-amber-500/40 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 hover:scale-[1.02]">
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      width={1000}
+                      height={1000}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="absolute bottom-4 left-4 right-4">
@@ -178,7 +181,7 @@ export const Projects = () => {
           <div className="bg-white/70 backdrop-blur-sm inline-block p-8 rounded-2xl border border-amber-500/30">
             <h3 className="text-2xl font-semibold text-slate-900 mb-4">Ready to Start Your Project?</h3>
             <p className="text-slate-700 mb-6 max-w-md mx-auto">
-              Let's discuss your vision and create something extraordinary together.
+              Let&apos;s discuss your vision and create something extraordinary together.
             </p>
             <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold shadow-amber-500/20">
               View All Projects

@@ -65,7 +65,7 @@ export const Contact = () => {
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Ready to build your dream property? Get in touch with our expert team for a free consultation. 
-            We're here to bring your vision to life.
+            We&apos;re here to bring your vision to life.
           </p>
         </div>
 

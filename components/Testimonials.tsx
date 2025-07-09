@@ -2,6 +2,7 @@
 
 import { Star, Quote } from "lucide-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -94,15 +95,17 @@ export const Testimonials = () => {
 
               {/* Testimonial Text */}
               <blockquote className="text-xl md:text-2xl text-white text-center leading-relaxed mb-8 font-light">
-                "{testimonials[currentIndex].content}"
+                &quot;{testimonials[currentIndex].content}&quot;
               </blockquote>
 
               {/* Client Info */}
               <div className="flex items-center justify-center space-x-4">
-                <img
+                <Image
                   src={testimonials[currentIndex].image}
                   alt={testimonials[currentIndex].name}
                   className="w-16 h-16 rounded-full border-2 border-construction-gold/30"
+                  width={1000}
+                  height={1000}
                 />
                 <div className="text-center">
                   <div className="text-lg font-semibold text-construction-gold">
@@ -156,16 +159,18 @@ export const Testimonials = () => {
 
               {/* Content */}
               <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
 
               {/* Client */}
               <div className="flex items-center space-x-3">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-10 h-10 rounded-full border border-construction-gold/30"
-                />
+                  width={1000}
+                  height={1000}
+                  />
                 <div>
                   <div className="text-sm font-medium text-white">{testimonial.name}</div>
                   <div className="text-xs text-gray-400">{testimonial.role}</div>
