@@ -1,26 +1,218 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-@media (prefers-color-scheme: dark) {
+/* Dark Mode Design System Colors */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 15 15 15;
+    --foreground: 255 255 255;
+
+    --card: 26 26 26;
+    --card-foreground: 248 248 248;
+
+    --popover: 26 26 26;
+    --popover-foreground: 248 248 248;
+
+    --primary: 42 87% 55%;
+    --primary-foreground: 15 15 15;
+
+    --secondary: 38 38 38;
+    --secondary-foreground: 220 220 220;
+
+    --muted: 45 45 45;
+    --muted-foreground: 163 163 163;
+
+    --accent: 45 45 45;
+    --accent-foreground: 248 248 248;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 45 45 45;
+    --input: 45 45 45;
+    --ring: 42 87% 55%;
+
+    --radius: 0.75rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-construction-gold hover:bg-construction-gold-dark text-construction-dark font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-construction-gold/25;
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-construction-gold text-construction-gold hover:bg-construction-gold hover:text-construction-dark font-semibold py-3 px-8 rounded-lg transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  .construction-card {
+    @apply glass-effect border border-construction-gold/20 rounded-xl p-6 hover:shadow-2xl hover:shadow-construction-gold/10 transition-all duration-500 hover:scale-[1.02] hover:border-construction-gold/40;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.85) 0%, rgba(26, 26, 26, 0.7) 50%, rgba(15, 15, 15, 0.85) 100%);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .glass-effect {
+    @apply bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  /* Enhanced glass morphism for better contrast */
+  .glass-effect-strong {
+    @apply bg-black/30 backdrop-blur-2xl border border-white/20 shadow-2xl;
+  }
+
+  .glass-effect-light {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-construction-gold/70 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-construction-gold;
+  }
+
+  /* Thin scrollbar variant */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thumb-construction-gold\/30::-webkit-scrollbar-thumb {
+    @apply bg-construction-gold/30 rounded-full;
+  }
+}
+
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Enhanced animation utilities */
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-smooth-pulse {
+    animation: smooth-pulse 6s ease-in-out infinite;
+  }
+
+  .animate-slow-pulse {
+    animation: slow-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(184, 134, 11, 0.3), 0 0 40px rgba(184, 134, 11, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(184, 134, 11, 0.6), 0 0 60px rgba(184, 134, 11, 0.2);
+    }
+  }
+
+  @keyframes smooth-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(184, 134, 11, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(184, 134, 11, 0.4);
+    }
+  }
+
+  @keyframes slow-pulse {
+    0%, 100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Floating ring animation */
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
 }
